@@ -5,7 +5,7 @@ use serde::Deserialize;
 
 #[derive(Clone, Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Chart {
+pub struct Addon {
     pub id: i32,
     pub name: String,
     pub png_embed: String,
@@ -28,15 +28,15 @@ pub struct Chart {
 
     pub rating: Option<f32>,
 }
-impl Object for Chart {
-    const QUERY_PATH: &'static str = "chart";
+impl Object for Addon {
+    const QUERY_PATH: &'static str = "addon";
 
     fn id(&self) -> i32 {
         self.id
     }
 }
 
-impl Chart {
+impl Addon {
     pub fn to_info(&self) -> BriefChartInfo {
         BriefChartInfo {
             id: Some(self.id),
